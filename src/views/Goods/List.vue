@@ -52,12 +52,12 @@
         },
         methods: {
             async loadGoodsList() {
-                let {status, data} = await Goods.list({pageSize: 100});
+                let {status, goods} = await Goods.list({pageSize: 100});
                 if (status) {
-                    data.forEach(function (item, index) {
+                    goods.forEach(function (item, index) {
                         item.create_time = new Date(item.create_time).toLocaleString()
                     });
-                    this.tableData = data;
+                    this.tableData = goods;
                 }
             },
             async showDeleteModal(id) {
